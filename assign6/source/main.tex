@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\title{Digital Logic Design Assignment 6}
+
+\author{k ganesh reddy}
+
+\usepackage[american]{circuitikz}
+\usepackage[hmargin={30mm,30mm},
+            height=247mm,
+            a4paper]{geometry}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Boolean Equation}
+\begin{center}
+    $a$ = D' B'(C A' + C'A)
+\end{center}
+
+\section{Logic Diagram}
+\begin{figure}[h]\centering
+\begin{circuitikz}[scale=2]
+ \draw
+(1,0.5)node[and port](andf){}
+
+(0,0)node[and port](andDB){}
+
+(0,1)node[xor port](xorCA){}
+
+(andDB.bin 2)node[ocirc, left]{} 
+(andDB.bin 1)node[ocirc, left]{}
+
+(andDB.in 1) node[anchor=east] {D} 
+(andDB.in 2) node[anchor=east] {B}
+(xorCA.in 1) node[anchor=east] {C}
+(xorCA.in 2) node[anchor=east] {A}
+(andf.out) node[anchor=west] {$a$}
+
+(andDB.out)--(andf.in 2) 
+(xorCA.out)--(andf.in 1)
+;
+
+\end{circuitikz}
+\end{figure}
+
+\end{document}
